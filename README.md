@@ -12,7 +12,9 @@ yum install gcc make flex bison byacc git
 Run the following commands to clone the repo and build the tools:
 
 git clone https://github.com/gregrahn/tpcds-kit.git
+
 cd tpcds-kit/tools
+
 make OS=LINUX
 
 ### Create directory for Flat files (for SF=1000, need 1024 GB Space)
