@@ -67,6 +67,7 @@ https://github.com/mmareddy943/singlestore/blob/main/tpcds_99_queries
 
 **References:**
 https://github.com/gregrahn
+
 https://www.singlestore.com/blog/tpcds-benchmarking-showdown-a-singlestore-pov/
 
 
