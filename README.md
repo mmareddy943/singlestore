@@ -26,10 +26,15 @@ mkdir /tpdds
 in my test methodolgy, i have created external space and mounted to /tpdds.for this we need below steps to mount the volume.
 
 parted /dev/sdb mklabel gpt
+
 parted /dev/sdb mkpart primary 2048s 100%
+
 partprobe /dev/sdb
+
 mkfs.xfs /dev/sdb1
+
 mkdir -p /tpdds
+
 mount -a
 
 ### Using dsdgen to generate the data
@@ -60,7 +65,9 @@ https://github.com/mmareddy943/singlestore/blob/main/Optimize
 https://github.com/mmareddy943/singlestore/blob/main/tpcds_99_queries
 
 
-
+**References:**
+https://github.com/gregrahn
+https://www.singlestore.com/blog/tpcds-benchmarking-showdown-a-singlestore-pov/
 
 
 
