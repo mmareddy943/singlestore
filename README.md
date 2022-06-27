@@ -12,7 +12,9 @@ yum install gcc make flex bison byacc git
 Run the following commands to clone the repo and build the tools:
 
 git clone https://github.com/gregrahn/tpcds-kit.git
+
 cd tpcds-kit/tools
+
 make OS=LINUX
 
 ### Create directory for Flat files (for SF=1000, need 1024 GB Space)
@@ -24,10 +26,15 @@ mkdir /tpdds
 in my test methodolgy, i have created external space and mounted to /tpdds.for this we need below steps to mount the volume.
 
 parted /dev/sdb mklabel gpt
+
 parted /dev/sdb mkpart primary 2048s 100%
+
 partprobe /dev/sdb
+
 mkfs.xfs /dev/sdb1
+
 mkdir -p /tpdds
+
 mount -a
 
 ### Using dsdgen to generate the data
@@ -58,7 +65,10 @@ https://github.com/mmareddy943/singlestore/blob/main/Optimize
 https://github.com/mmareddy943/singlestore/blob/main/tpcds_99_queries
 
 
+**References:**
+https://github.com/gregrahn
 
+https://www.singlestore.com/blog/tpcds-benchmarking-showdown-a-singlestore-pov/
 
 
 
