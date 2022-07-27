@@ -52,7 +52,7 @@ it has generated total 24 files with total 917 GB.
 
 https://github.com/mmareddy943/singlestore/blob/main/Craete%20Tables%20in%20ColumnStore
 
-### Using Below script to load the data from data generation to tpcds database.
+### Using Below script to load the data from data generation to tpcds database.it will automatically capture the database load time also. 
 
 #!/bin/bash
 
@@ -83,6 +83,8 @@ execution_time=`printf "%.2f seconds" $duration`
 echo "Script Execution Time: $execution_time"
 
 NOTE: Before executing the script,add hostname in memsql statement instead of ****.
+or
+NOTE: Using command line script to load the data to single store database. commands location https://github.com/mmareddy943/singlestore/blob/main/load_data_commands
 
 ###Using optimize and analyze command scripts to optimize the tables.
 
@@ -127,7 +129,7 @@ Q22:1.09
 -------------------------------------------------------------------
 
 **References:**
-https://github.com/gregrahn
+(https://github.com/pingcap/tidb-bench/tree/master/tpcds
 
 https://www.singlestore.com/blog/tpcds-benchmarking-showdown-a-singlestore-pov/
 
