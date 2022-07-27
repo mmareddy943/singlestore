@@ -55,7 +55,7 @@ https://github.com/mmareddy943/singlestore/blob/main/Craete%20Tables%20in%20Colu
 ### Using Below script to load the data from data generation to tpcds database.
 
 #!/bin/bash
-# Created by Mahesh Anand Reddy
+#Created by Mahesh Anand Reddy
 start=$(date +%s.%N)
 touch file_log.log
 for f_name in `ls /tpcds/*.dat`;
@@ -71,11 +71,11 @@ echo "Script Execution Time: $execution_time"
 
 NOTE: Before executing the script,add hostname in memsql statement instead of ****.
 
-### Using optimize and analyze command scripts to optimize the tables.
+###Using optimize and analyze command scripts to optimize the tables.
 
 https://github.com/mmareddy943/singlestore/blob/main/Optimize
 
-### Using below script to execute 99-Queries 
+###Using below script to execute 99-Queries 
 I have created python script to autocapture the query timings for the 99-queries. The script has uploaded in the below link.
 
 https://github.com/mmareddy943/singlestore/blob/main/python_script_queries.py
