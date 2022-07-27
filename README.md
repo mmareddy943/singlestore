@@ -100,6 +100,7 @@ https://github.com/mmareddy943/singlestore/blob/main/sample.txt
 ----------------------------------------------------
 Sample Output:
 [root@pyth-vm ~]# python3 test.py
+
 Q1:12.524
 Q2:48.08
 Q3:0.512
