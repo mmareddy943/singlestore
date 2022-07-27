@@ -55,18 +55,31 @@ https://github.com/mmareddy943/singlestore/blob/main/Craete%20Tables%20in%20Colu
 ### Using Below script to load the data from data generation to tpcds database.
 
 #!/bin/bash
+
 #Created by Mahesh Anand Reddy
+
 start=$(date +%s.%N)
+
 touch file_log.log
+
 for f_name in `ls /tpcds/*.dat`;
+
 do
+
 t_file=$(echo "${f_name##*/}")
+
 t_name=$(echo "${t_file%.*}")
+
 load_tpcds_data="LOAD DATA LOCAL INFILE '$f_name' INTO TABLE $t_name FIELDS TERMINATED BY '|' LINES TERMINATED BY '|\n';"
+
 memsql -u root -p -h ****** --local-infile=1 -D tpcds -e "$load_tpcds_data" >> file_log.log
+
 done
+
 duration=$(echo "$(date +%s.%N) - $start" | bc)
+
 execution_time=`printf "%.2f seconds" $duration`
+
 echo "Script Execution Time: $execution_time"
 
 NOTE: Before executing the script,add hostname in memsql statement instead of ****.
