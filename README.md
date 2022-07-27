@@ -51,7 +51,7 @@ https://github.com/mmareddy943/singlestore/blob/main/Craete%20Tables%20in%20Colu
 #Created by Mahesh Anand Reddy
 start=$(date +%s.%N)
 touch file_log.log
-for f_name in `ls /tpcds/*.dat`;
+for f_name in `ls /tpdds/*.dat`;
 do
 t_file=$(echo "${f_name##*/}")
 t_name=$(echo "${t_file%.*}")
