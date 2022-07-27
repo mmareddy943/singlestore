@@ -52,18 +52,65 @@ it has generated total 24 files with total 917 GB.
 
 https://github.com/mmareddy943/singlestore/blob/main/Craete%20Tables%20in%20ColumnStore
 
-### Using load_data_commands to load the data from data generation to tpcds database.
+### Using Below script to load the data from data generation to tpcds database.
 
-https://github.com/mmareddy943/singlestore/blob/main/load_data_commands
+#!/bin/bash
+# Created by Mahesh Anand Reddy
+start=$(date +%s.%N)
+touch file_log.log
+for f_name in `ls /tpcds/*.dat`;
+do
+t_file=$(echo "${f_name##*/}")
+t_name=$(echo "${t_file%.*}")
+load_tpcds_data="LOAD DATA LOCAL INFILE '$f_name' INTO TABLE $t_name FIELDS TERMINATED BY '|' LINES TERMINATED BY '|\n';"
+memsql -u root -p -h ****** --local-infile=1 -D tpcds -e "$load_tpcds_data" >> file_log.log
+done
+duration=$(echo "$(date +%s.%N) - $start" | bc)
+execution_time=`printf "%.2f seconds" $duration`
+echo "Script Execution Time: $execution_time"
+
+NOTE: Before executing the script,add hostname in memsql statement instead of ****.
 
 ### Using optimize and analyze command scripts to optimize the tables.
 
 https://github.com/mmareddy943/singlestore/blob/main/Optimize
 
 ### Using below script to execute 99-Queries 
+I have created python script to autocapture the query timings for the 99-queries. The script has uploaded in the below link.
 
-https://github.com/mmareddy943/singlestore/blob/main/tpcds_99_queries
+https://github.com/mmareddy943/singlestore/blob/main/python_script_queries.py
 
+NOTE: sample.txt file also uploaded in the below link. 
+
+https://github.com/mmareddy943/singlestore/blob/main/sample.txt
+
+----------------------------------------------------
+Sample Output:
+[root@pyth-vm ~]# python3 test.py
+Q1:12.524
+Q2:48.08
+Q3:0.512
+Q4:282.88
+Q5:35.325
+Q6:25.614
+Q7:9.072
+Q8:2.281
+Q9:13.205
+Q10:8.629
+Q11:127.664
+Q12:0.707
+Q13:4.421
+Q14:133.187
+Q15:3.654
+Q16:38.113
+Q17:6.818
+Q18:9.521
+Q19:1.26
+Q20:0.734
+Q21:0.634
+Q22:1.09
+
+-------------------------------------------------------------------
 
 **References:**
 https://github.com/gregrahn
